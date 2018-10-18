@@ -24,8 +24,8 @@ class Solution(object):
             else:
                 cur = cur.next
         return head
-        
-         def partition2(self, head, x):
+        '''
+        def partition(self, head, x):
         """
         :type head: ListNode
         :type x: int
@@ -48,3 +48,4 @@ class Solution(object):
         # Linked to the back
         p.next = dummy.next        
         return dummy2.next
+		'''
