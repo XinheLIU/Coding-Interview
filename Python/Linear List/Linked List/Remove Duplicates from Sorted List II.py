@@ -16,7 +16,7 @@ class Solution(object):
         prev = dummy
         while prev and prev.next:
             cur = prev.next
-            while(cur.next and cur.val == cur.next.val):
+            while cur.next and cur.val == cur.next.val:
                 cur = cur.next
             if prev.next != cur:
                 prev.next = cur.next
