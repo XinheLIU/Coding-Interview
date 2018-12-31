@@ -27,7 +27,6 @@ class Solution(object):
             return head
         p = head
         head = self.reverseList(p.next)
-        p.next.next = p
-        p.next = None
+        p.next.next, p.next = p, None
         return head
     '''

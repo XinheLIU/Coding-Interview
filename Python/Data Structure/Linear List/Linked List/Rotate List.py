@@ -22,7 +22,7 @@ class Solution(object):
         cur.next = head
         # break at n - k%n
         m = n - k % n
-        for i in range(m):
+        for _ in range(m):
             cur = cur.next
         newhead = cur.next
         cur.next = None
