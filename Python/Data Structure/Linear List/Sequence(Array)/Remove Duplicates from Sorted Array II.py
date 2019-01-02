@@ -16,7 +16,8 @@ class Solution(object):
                 j += 1
         return i + 1
         
-class Solution(object):
+        
+'''
     def removeDuplicates(self, nums):
         i, prev = 0, None
         for num in nums:
@@ -24,3 +25,4 @@ class Solution(object):
             prev = nums[i] = num
             i += 1
         return i
+'''

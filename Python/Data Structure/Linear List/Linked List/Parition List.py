@@ -25,12 +25,7 @@ class Solution(object):
                 cur = cur.next
         return head
         '''
-        def partition(self, head, x):
-        """
-        :type head: ListNode
-        :type x: int
-        :rtype: ListNode
-        """
+    def partition(self, head, x):
         # do the problem by creating a new one than link oringinal at the end
         dummy, dummy2 = ListNode(None), ListNode(None)
         dummy.next = head
