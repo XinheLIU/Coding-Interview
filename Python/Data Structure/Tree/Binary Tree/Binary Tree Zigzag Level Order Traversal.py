@@ -1,31 +1,36 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-class Solution:
-    def traverse(self, root, level, res):
-        if not root:
-            return
-        # add one more empty layer
-        if len(res) == level:
-            res.append([])
-        if level % 2 == 0:
-            res[level].append(root.val)
-        else:
-            res[level].insert(0, root.val)
-        if root.left:
-            self.traverse(root.left, level + 1, res)
-        if root.right: 
-            self.traverse(root.right, level + 1, res)
-            
+class Solution(object):
     def zigzagLevelOrder(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[int]]
         """
-        self.res = []
-        self.traverse(root, 0, self.res)
-        return self.res
+        if not root:
+            return []
+        # use two stacks
+        ret, s1, s2 = [], [], [] # or queue does not really matter
+        s1.append(root)
+        while len(s1) or len(s2):
+            level = []
+            while len(s1):
+                cur = s1.pop()
+                level.append(cur.val)
+                if cur.left:
+                    s2.append(cur.left)
+                if cur.right:
+                    s2.append(cur.right)
+            if len(level): 
+                ret.append(level)
+            print(ret)
+            level = []
+            while len(s2):
+                cur = s2.pop()
+                level.append(cur.val)
+                if cur.right:
+                    s1.append(cur.right)
+                if cur.left:
+                    s1.append(cur.left)
+            if len(level): 
+                ret.append(level)
+            print(ret)
+        return ret
+            
