@@ -23,7 +23,7 @@ class Solution(object):
             sell[i] = max(sell[i-1], buy[i-1] + prices[i])
         return sell[n-1]
         
-        
+        '''
         # O(1) solution  
 		def maxProfit(self, prices):
         	if len(prices) < 2:
@@ -35,3 +35,4 @@ class Solution(object):
         	    prev_sell = sell
        	        sell = max(prev_buy + price, prev_sell)
         	return sell	
+        '''

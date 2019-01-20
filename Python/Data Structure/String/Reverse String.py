@@ -18,10 +18,8 @@ class Solution(object):
         r = len(s)-1
         ss = ['']*len(s)
         while l < r:
-            ss[l] = s[r]
-            ss[r] = s[l]
-            l+=1
-            r-=1
+            ss[l],ss[r] = s[r],s[l]
+            l, r = l+1, r-1
         if l == r:
             ss[l] = s[r]
         return ''.join(ss)
