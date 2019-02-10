@@ -15,3 +15,14 @@ class Solution(object):
                 nums[i] = nums[j]
                 j += 1
         return i + 1
+        
+        
+'''
+    def removeDuplicates(self, nums):
+        i, prev = 0, None
+        for num in nums:
+            if num == prev: continue
+            prev = nums[i] = num
+            i += 1
+        return i
+'''
