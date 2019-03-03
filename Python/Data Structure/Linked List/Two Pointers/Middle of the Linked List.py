@@ -15,3 +15,20 @@ class Solution(object):
             fast = fast.next.next
             slow = slow.next
         return slow
+'''
+# If the middle is the one before: we need
+
+class Solution(object):
+  def middleNode(self, head):
+    """
+    input: ListNode head
+    return: ListNode
+    """
+    if not head:
+      return head
+    self.next = head
+    fast = slow = self
+    while fast and fast.next:
+      fast, slow = fast.next.next, slow.next
+    return slow
+'''   
