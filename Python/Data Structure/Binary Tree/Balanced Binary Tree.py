@@ -21,4 +21,4 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        return False if self.helper(root) == -1 else True
+        return self.helper(root) != -1 
