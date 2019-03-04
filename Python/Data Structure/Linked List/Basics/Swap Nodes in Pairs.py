@@ -5,18 +5,6 @@
 #         self.next = None
 
 class Solution(object):
-    def swapPairs(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        prev, self.next, cur = self, head, head
-        while cur and cur.next:
-            temp, cur.next = cur.next, cur.next.next
-            temp.next, prev.next = prev.next, temp
-            prev, cur = cur, cur.next  #moved two steps from original 
-        return self.next 
-    '''
     # recursive
     def swapPairs(self, head):
         """
@@ -29,4 +17,18 @@ class Solution(object):
         # swap head and next
         t.next, head.next = head, self.swapPairs(head.next.next)
         return t
+
+    '''
+    # non-recursive
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        prev, self.next, cur = self, head, head
+        while cur and cur.next:
+            temp, cur.next = cur.next, cur.next.next
+            temp.next, prev.next = prev.next, temp
+            prev, cur = cur, cur.next  #moved two steps from original 
+        return self.next 
     '''
