@@ -11,7 +11,7 @@ class Solution(object):
     while l + 1 < r:
       mid = l + (r - l) // 2
       if array[mid] < target:
-          l = mid
+          l = mid + 1
       elif array[mid] >= target:
           r = mid
     if array[l] == target:
