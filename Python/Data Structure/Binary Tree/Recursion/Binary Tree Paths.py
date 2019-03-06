@@ -17,4 +17,27 @@ class Solution(object):
             return [str(root.val)]
         return [str(root.val) + "->" + i for i in self.binaryTreePaths(root.left)] + \
             [str(root.val) + "->" + i for i in self.binaryTreePaths(root.right)]
+
+'''
+class Solution(object):
+  def binaryTreePaths(self, root):
+    """
+    input: TreeNode root
+    return: string[]
+    """
+    if not root:
+      return []
+    self.res = []
+    self.helper(root, "")
+    return self.res
     
+  def helper(self, root, out):
+    if not root.left and not root.right:
+      self.res.append(out + str(root.val) )
+      return
+    if root.left:
+      self.helper(root.left, out + str(root.val) + "->" )
+    if root.right:
+       self.helper(root.right, out + str(root.val) + "->")
+
+'''
