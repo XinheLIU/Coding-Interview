@@ -7,43 +7,28 @@ class Solution:
         """
         if not nums or k < 1 or k > len(nums):
             return None
-        return self.partition(nums, 0, len(nums)-1, len(nums)-k) # the pivoting is from small to large
-    
+        l, r, n = 0, len(nums) - 1, len(nums)
+        while l <= r:
+            pivot_pos = self.partition(nums, l, r)
+            if pivot_pos == n - k:
+                return nums[pivot_pos]
+            elif pivot_pos < n - k:
+                l = pivot_pos + 1
+            else:
+                r = pivot_pos - 1
+                
+   
     # quick sort
-    def partition(self, nums, start, end, k):
+    def partition(self, nums, l, r):
         """
         make sure start <= k <= end
         compare the pivots position with k
         whether to repeat again 
         """
-        if start >= end:
-            return nums[k]
-        l, r = start, end
-        pivot = nums[(l + r) // 2]
-        while l <= r:
-            while l <= r and nums[l] < pivot:
-                l += 1
-            while l <= r and nums[r] > pivot:
-                r -= 1
-            if l <= r:
-                nums[l], nums[r] = nums[r], nums[l]
-                l +=1
-                r -= 1
-        if k <= r:
-            return self.partition(nums, start, r, k)
-        if k >= l:
-            return self.partition(nums, l, end, k )
-        return nums[k]class Solution(object):
-  def sort(self, array):
-    """
-    input: int[] array
-    return: int[]
-    """
-    # sort it in place
-    for i in range(1, len(array)):
-      cur, k = array[i], i
-      while k > 0 and array[k-1] > cur:
-        array[k] = array[k-1]
-        k -= 1
-      array[k] = cur
-    return array
+        i, pivot = l - 1, nums[r]
+        for j in range(l,r):
+            if nums[j] < pivot:
+                i += 1
+                nums[i], nums[j] = nums[j], nums[i]
+        nums[i+1], nums[r] = nums[r], nums[i+1]
+        return i + 1

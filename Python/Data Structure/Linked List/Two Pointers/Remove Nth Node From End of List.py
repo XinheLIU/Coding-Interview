@@ -9,7 +9,10 @@ class Solution:
         self.next = head
         p1, p2 = head, self
         for _ in range(n):
-            p1 = p1.next
+        	if p1:
+            	p1 = p1.next
+        	else:
+        		return head
         while p1:
             p1, p2 = p1.next, p2.next
         p2.next = p2.next.next
