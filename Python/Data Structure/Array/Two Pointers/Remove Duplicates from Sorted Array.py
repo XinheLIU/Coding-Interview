@@ -26,3 +26,19 @@ class Solution(object):
             i += 1
         return i
 '''
+
+'''
+class Solution(object):
+  def dedup(self, array):
+    """
+    input: int[] array
+    return: int[]
+    """
+    i = 0
+    for j in range(len(array)):
+      if array[j] == array[i]:
+        continue
+      i += 1
+      array[i] = array[j]   
+    return(array[:i+1])
+'''
