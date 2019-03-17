@@ -9,9 +9,9 @@ class Solution(object):
     l, r = 0, len(array) - 1
     while l + 1 < r:
       mid = l + (r - l) // 2
-      if array[mid] <= target:
+      if target >= array[mid]:
           l = mid
-      elif array[mid] > target:
+      elif target < array[mid]:
           r = mid
     if array[r] == target:
       return r
