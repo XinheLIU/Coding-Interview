@@ -10,7 +10,7 @@ class Solution(object):
             return -1
         start, end = 0, len_t - 1
         while start + 1 < end:
-            mid = start + (end - start)/2
+            mid = start + (end - start) // 2
             if nums[mid] > nums[end]:
                 start = mid
             else:
