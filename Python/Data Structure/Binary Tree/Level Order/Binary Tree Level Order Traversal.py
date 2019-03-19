@@ -12,7 +12,6 @@ class Solution:
         while len(q):
             # current level
             level = []
-            print(len(q))
             for _ in range(len(q)):
                 node = q.pop(0)
                 level.append(node.val)
