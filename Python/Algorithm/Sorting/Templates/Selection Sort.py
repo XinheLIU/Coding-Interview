@@ -4,6 +4,7 @@ class Solution(object):
     input: int[] array
     return: int[]
     """
+    # move the smallest to left most place
     for i in range(0, len(array)):
       min_ind = i
       for j in range(i + 1, len(array)):
