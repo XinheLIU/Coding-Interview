@@ -1,4 +1,4 @@
-class Solution:
+rclass Solution:
     def reverseBetween(self, head, m, n):
         """
         :type head: ListNode
@@ -7,12 +7,12 @@ class Solution:
         :rtype: ListNode
         """
         self.next = head
-        cur = self 
-        for i in range(1,m):
-            cur = cur.next
-        prev, cur = cur, cur.next
+        prev = self 
+        for _ in range(1,m):
+            prev = prev.next
+        cur = prev.next
         # move nodes after cur to after prev one by one 
-        for i in range(n-m):
+        for _ in range(n-m):
             temp, cur.next = cur.next, cur.next.next
             temp.next, prev.next  = prev.next, temp
         return self.next
