@@ -28,4 +28,35 @@ class Solution(object):
       # put the pivot in place
       array[i+1], array[r] = array[r], array[i+1]
       return i+1
-        
+'''
+# More explicit method
+class Solution(object):
+  
+  def quickSort(self, array):
+    """
+    input: int[] array
+    return: int[]
+    """
+    def partition(array, start, end, pivot_index):
+      array[end], array[pivot_index] = array[pivot_index], array[end]
+      pivot = array[end]
+      store_index = start
+      for i in range(start, end):
+        if array[i] < pivot:
+          array[i], array[store_index] = array[store_index], array[i]
+          store_index += 1
+      array[end], array[store_index] = array[store_index], array[end]
+      return store_index
+
+    def quick_sort(array, start, end):
+      from random import randrange
+      if start >= end:
+        return
+      pivot_index = randrange(start, end + 1)
+      new_pivot_index = partition(array, start, end, pivot_index)
+      quick_sort(array, start, new_pivot_index - 1)
+      quick_sort(array, new_pivot_index + 1, end)
+
+    quick_sort(array, 0, len(array) - 1)
+    return array
+'''
