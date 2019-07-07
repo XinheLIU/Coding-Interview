@@ -16,6 +16,17 @@ class Solution(object):
             cur.next, prev, cur = prev, cur, cur.next
         return prev
     
+    ''' normal (no-python) solution 
+    def reverseList(self, head):
+    	prev = None
+    	while head:
+    		next = node.next
+    		node.next = prev
+    		prev = node
+    		node = next
+    	return prevN
+    '''
+
     '''
     # recursive solution
     def reverseList(self, head):
