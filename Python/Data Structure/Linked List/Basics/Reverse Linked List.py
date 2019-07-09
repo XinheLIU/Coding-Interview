@@ -24,7 +24,7 @@ class Solution(object):
     		node.next = prev
     		prev = node
     		node = next
-    	return prevN
+    	return prevNc
     '''
 
     '''
