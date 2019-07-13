@@ -13,6 +13,23 @@ class Solution:
 
 '''
 class Solution:
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        l, r = 0, x
+        while l + 1 < r:
+            mid = l + (r-l) // 2
+            if mid * mid < x:
+                l = mid
+            else:
+                r = mid
+        if r * r <= x:
+            return int(r)
+        return int(l)
+
+class Solution:
 	def mySqrt(self, x):
     """
     @param x: An integer
