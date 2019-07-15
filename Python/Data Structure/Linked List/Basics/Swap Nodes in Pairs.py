@@ -30,5 +30,5 @@ class Solution(object):
             temp, cur.next = cur.next, cur.next.next
             temp.next, prev.next = prev.next, temp
             prev, cur = cur, cur.next  #moved two steps from original 
-        return self.next 
+        return self.next r
     '''
