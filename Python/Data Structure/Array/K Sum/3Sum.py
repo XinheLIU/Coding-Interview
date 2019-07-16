@@ -5,26 +5,26 @@ class Solution(object):
     """
     def threeSum(self, nums):
         nums.sort()
-        results = []
+        ret = []
         length = len(nums)
-        for i in range(0, length - 2):
+        for i in range(0, len(nums) - 1):
             if nums[i] > 0:
                 break
-            if i and nums[i] == nums[i - 1]:
+            target = 0 - nums[i]
+            if i and nums[i] == nums[i-1]:
                 continue
-            target = -nums[i]
-            left, right = i + 1, length - 1
-            while left < right:
-                if nums[left] + nums[right] == target:
-                    results.append([nums[i], nums[left], nums[right]])
-                    right -= 1
-                    left += 1
-                    while left < right and nums[left] == nums[left - 1]:
-                        left += 1
-                    while left < right and nums[right] == nums[right + 1]:
-                        right -= 1
-                elif nums[left] + nums[right] > target:
-                    right -= 1
+            l, r = i + 1, length - 1
+            while l < r:
+                if nums[l] + nums[r] == target:
+                    ret.append([nums[i], nums[l], nums[r]])
+                    r -= 1
+                    l += 1
+                    while l < r and nums[l] == nums[l-1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r+1]:
+                        r -= 1
+                elif nums[l] + nums[r] > target:
+                     r -= 1
                 else:
-                    left += 1
-        return results
+                    l += 1
+        return ret
