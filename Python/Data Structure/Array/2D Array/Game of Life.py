@@ -27,7 +27,6 @@ class Solution:
                     board[i][j] = 3
                 if board[i][j] == 0 and lives == 3:
                     board[i][j] = 2
-        # 更新细胞状态
         for i in range(m):
             for j in range(n):
                 board[i][j] >>= 1
