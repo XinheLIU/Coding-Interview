@@ -4,14 +4,9 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
-num = float('-inf')
+
 class Solution:
-    
-    def minDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
+    def minDepth(self, root: TreeNode) -> int:
         if not root:
             return 0
         l, r = self.minDepth(root.left), self.minDepth(root.right)
