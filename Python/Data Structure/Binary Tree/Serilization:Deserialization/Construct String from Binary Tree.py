@@ -11,8 +11,7 @@ class Solution:
             return ""
         subleft = '({})'.format(self.tree2str(t.left)) if t.left or t.right else ''
         subright = '({})'.format(self.tree2str(t.right)) if t.right else ''
-        return '{}{}{}'.format(t.val, subleft, subright)
-        
+        return '{}{}{}'.format(t.val, subleft, subright)        
 """
 use stack to do it
 """
