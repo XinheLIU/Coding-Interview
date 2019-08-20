@@ -5,18 +5,12 @@
 #         self.left = None
 #         self.right = None
 
-class Solution(object):
-    def insertIntoBST(self, root, key):
-        """
-        :type root: TreeNode
-        :type val: int
-        :rtype: TreeNode
-        """
+class Solution:
+    def insertIntoBST(self, root: TreeNode, val: int) -> TreeNode:
         if not root:
-            return TreeNode(key)
-        elif key < root.val:
-            root.left = self.insertIntoBST(root.left, key) if root.left else TreeNode(key)
-        elif key > root.val:
-            root.right = self.insertIntoBST(root.right, key) if root.right else TreeNode(key)
-        # equal, do nothing
+            return root
+        if val < root.val:
+            root.left = self.insertIntoBST(root.left, val) if root.left else TreeNode(val)
+        else:
+            root.right = self.insertIntoBST(root.right, val) if root.right else TreeNode(val)
         return root

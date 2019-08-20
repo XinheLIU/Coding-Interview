@@ -43,7 +43,7 @@ class Solution(object): # (NW) * min(N, W*W) complexity
         return sum(dsu.par[x] == x for x in xrange(N))
 
 
-"""
+'''
 class Solution:
     def numSimilarGroups(self, A):
         """
@@ -82,10 +82,10 @@ class Solution:
                 if isSimilar(A[x],A[y]): 
                     union(A[x],A[y])
         return self.n
-"""
+'''
 
 
-"""
+'''
 class Solution(object):
     def numSimilarGroups(self, A):
         """
@@ -124,4 +124,4 @@ class Solution(object):
             dfs(i)
             res += 1
         return res
-"""
+'''
