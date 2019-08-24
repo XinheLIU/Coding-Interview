@@ -1,10 +1,27 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(nums, level, out, ret, visited):
+            if level == len(nums):
+                ret.append(out[:])
+            for i, v in enumerate(nums):
+                if visited[i]:
+                    continue
+                out.append(v)
+                visited[i] = True
+                dfs(nums, level + 1, out, ret, visited)
+                out.pop()
+                visited[i] = False
+        ret = []
+        dfs(nums, 0, [], ret, [False for _ in nums])
+        return ret           
+
+'''
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
         if not nums:
             return []
         result, flags = [], [False] * len(nums)
         self.getPermutation(nums, result, flags, [])
-
         return result
 
     def getPermutation(self, nums, result, flags, temp):
@@ -20,6 +37,8 @@ class Solution:
             self.getPermutation(nums, result, flags, temp)
             temp.pop()
             flags[i] = False
+'''
+
 '''
 # DFS
 def permute(self, nums):
