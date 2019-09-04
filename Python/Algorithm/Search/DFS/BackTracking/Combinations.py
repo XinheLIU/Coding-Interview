@@ -12,13 +12,6 @@ class Solution:
         dfs(n, k, 1, [], res)
         return res
 
-
-
-
-
-
-
-
 """
 class Solution:
     def combine(self, n: 'int', k: 'int') -> 'List[List[int]]':   
