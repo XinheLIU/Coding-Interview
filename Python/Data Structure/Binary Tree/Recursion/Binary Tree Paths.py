@@ -5,18 +5,14 @@
 #         self.left = None
 #         self.right = None
 
-class Solution(object):
-    def binaryTreePaths(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[str]
-        """
+class Solution:
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
         if not root:
             return []
         if not root.left and not root.right:
             return [str(root.val)]
-        return [str(root.val) + "->" + i for i in self.binaryTreePaths(root.left)] + \
-            [str(root.val) + "->" + i for i in self.binaryTreePaths(root.right)]
+        return [str(root.val) + "->" + val for val in self.binaryTreePaths(root.left)] + \
+                [str(root.val) + "->" + val for val in self.binaryTreePaths(root.right)]
 
 '''
 class Solution(object):

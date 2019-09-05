@@ -7,8 +7,7 @@ class Solution:
         # BFS
         if not root:
             return []
-        ret, q = [], []
-        q.append(root)
+        ret, q = [], [root]
         while len(q):
             # current level
             level = []
