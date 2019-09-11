@@ -8,10 +8,24 @@ class Solution(object):
       start += 1    
   
   def combinations(self, target):
-    """
-    input: int target
-    return: int[][]
-    """
     self.result = []
     self.dfs(target, [], 2)
     return self.result
+    
+"""
+# TLE Solution
+from math import sqrt
+class Solution:
+    def getFactors(self, n):
+        def dfs(n, res, out, start):
+            if n == 1 and len(out) > 1:
+                res.append(out[:])
+            for i in range(start, int(n) + 1):
+                if n % i == 0:
+                    out.append(i)
+                    dfs(n // i, res, out, i)
+                    out.pop()
+        res = []
+        dfs(n, res, [], 2)
+        return res
+"""
