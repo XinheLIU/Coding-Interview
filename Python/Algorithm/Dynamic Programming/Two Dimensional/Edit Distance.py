@@ -1,10 +1,6 @@
 class Solution:
-    def minDistance(self, word1, word2):
-        """
-        :type word1: str
-        :type word2: str
-        :rtype: int
-        """
+    # we can also do recursion with mem
+    def minDistance(self, word1: str, word2: str) -> int:
         # notice, this problem is symmetric
         m, n = len(word1), len(word2)
         dp = [[0 for _ in range(n+1)] for j in range(m+1)]
