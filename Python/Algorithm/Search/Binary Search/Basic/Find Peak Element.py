@@ -1,22 +1,21 @@
 class Solution:
-    """
-    @param: A: An integers array.
-    @return: return any of peek positions.
-    """
-    def findPeak(self, A):
-        start, end = 1, len(A) - 2  # len(A) and len(A-1) is also okay
-        while start + 1 < end:
-            mid = (start + end) >> 1
-            if A[mid] < A[mid - 1]:
-                end = mid
-            elif A[mid] < A[mid + 1]:
-                start = mid
+    def findPeakElement(self, nums: List[int]) -> int:
+        if not nums:
+            return None
+        l, r = 0, len(nums) - 1
+        while l + 1 < r:
+            mid = (l + r) >> 1
+            if nums[mid] < nums[mid - 1]:
+                r = mid
+            elif nums[mid] < nums[mid + 1]:
+                l = mid
             else:
-                end = mid
-        if A[start] < A[end]:
-            return end
+                return mid
+        if nums[l] < nums[r]:
+            return r
         else:
-            return start 
+            return l
+            
     '''         
 	class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
