@@ -6,6 +6,7 @@
 
 class Solution:
     def removeNthFromEnd(self, head: 'ListNode', n: 'int') -> 'ListNode':
+    	# dummy node
         self.next = head
         p1, p2 = head, self
         for _ in range(n):
