@@ -1,14 +1,10 @@
-class Solution(object):
-  def moveZeroes(self, array):
-    """
-    input: int[] array
-    return: int[]
-    """
-    if not array or not len(array):
-      return array
-    # two pointers
-    i = 0
-    for j in range(len(array)):
-      if array[j] != 0:
-        array[j], array[i] = array[i], array[j]
-        i += 1
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        i = 0
+        for j, v in enumerate(nums):
+            if v != 0:
+                nums[j], nums[i] = nums[i], nums[j]
+                i += 1

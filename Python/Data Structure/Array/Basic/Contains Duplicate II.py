@@ -1,4 +1,4 @@
-class Solution:
+nclass Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         mp = {}
         for i, n in enumerate(nums):
