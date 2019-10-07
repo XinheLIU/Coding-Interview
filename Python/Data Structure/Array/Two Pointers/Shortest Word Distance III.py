@@ -18,7 +18,7 @@ class Solution(object):
                 ind[1] = i
             if ind[0] != None and ind[1] != None:
             	if word1 == word2 and prev != -1 and prev != ind[0]:
-            		dis = min(dis, abs(ind[0] - t))
+            		dis = min(dis, abs(ind[0] - prev))
             	elif ind[0] != ind[1]:
                 	dis = min(dis, abs(ind[0] - ind[1]))
         return dis
