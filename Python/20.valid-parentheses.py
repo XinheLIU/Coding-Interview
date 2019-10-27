@@ -8,13 +8,15 @@
 from collections import deque
 class Solution:
     def isValid(self, s: str) -> bool:
-        dic = {")":"(", "]":"[", "}":"{"}
+        m = {")": "(", "]":"[", "}":"{"}
         stack = deque()
         for c in s:
-            if c not in dic:
+            if c not in m:
                 stack.append(c)
-            elif not stack or dic[c] != stack.pop():
-                return False
-        return not stack        
+            else:
+                if not stack or stack.pop() != m[c]:
+                    return False
+        return len(stack) == 0
+
 # @lc code=end
 

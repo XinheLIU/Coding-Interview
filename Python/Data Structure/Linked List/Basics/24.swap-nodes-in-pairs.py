@@ -21,8 +21,17 @@ class Solution:
             next.next = prev.next
             prev.next = next
             # move
-            prev, cur = cur, prev.next
+            prev, cur = cur, next
         return self.next
+'''
+class Solution:
+    def swapPairs(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return None
+        new_head = head.next
+        new_head.next, head.next = head, self.swapPairs(head.next.next)
+        return new_head    
+'''
         
 # @lc code=end
 
