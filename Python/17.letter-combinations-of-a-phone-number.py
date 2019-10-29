@@ -21,6 +21,26 @@ class Solution:
              '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
         for i in kvmaps[digits[level]]:
             self.dfs(digits, level + 1, out + i , ret)
-
+'''
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits or not len(digits):
+            return
+        
+        kvmap = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', \
+             '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
+        
+        def _dfs(digits, ret, level, out, kvmap):
+            if len(out) == len(digits):
+                ret.append(out)
+                return
+            for c in kvmap[digits[level]]:
+                _dfs(digits, ret, level + 1, out + c, kvmap)
+        
+        ret = []
+        _dfs(digits, ret, 0, "", kvmap)
+            
+        return ret
+'''
 # @lc code=end
 

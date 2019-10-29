@@ -26,3 +26,19 @@ class Solution:
         return fast
 # @lc code=end
 
+'''
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        fast = slow = head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast is slow:
+                break
+        if fast and fast.next and fast is slow:
+            fast = head
+            while fast != slow:
+                fast, slow = fast.next, slow.next
+            return fast
+        return None
+'''

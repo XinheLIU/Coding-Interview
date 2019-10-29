@@ -16,7 +16,6 @@ class Solution:
             else:
                 if not stack or stack.pop() != m[c]:
                     return False
-        return len(stack) == 0
-
+        return not stack
 # @lc code=end
 
