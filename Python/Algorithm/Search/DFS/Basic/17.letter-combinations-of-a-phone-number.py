@@ -24,22 +24,20 @@ class Solution:
 '''
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
+        ret= []
         if not digits or not len(digits):
-            return
-        
+            return ret
         kvmap = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', \
              '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
         
-        def _dfs(digits, ret, level, out, kvmap):
+        def dfs(digits, ret, out, level, kvmap):
             if len(out) == len(digits):
                 ret.append(out)
                 return
             for c in kvmap[digits[level]]:
-                _dfs(digits, ret, level + 1, out + c, kvmap)
-        
-        ret = []
-        _dfs(digits, ret, 0, "", kvmap)
-            
+                dfs(digits, ret, out + c, level + 1, kvmap)
+       
+        dfs(digits, ret, "", 0, kvmap)
         return ret
 '''
 # @lc code=end

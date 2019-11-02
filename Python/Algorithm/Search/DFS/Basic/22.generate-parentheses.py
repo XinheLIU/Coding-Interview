@@ -13,7 +13,7 @@ class Solution:
     
     def _gen(self, n, ret, result, left, right):
         if left == n and right == n:
-            ret.append(result[:])
+            ret.append(result)
             return
         if left < n:
             self._gen(n, ret, result + "(", left + 1, right)
