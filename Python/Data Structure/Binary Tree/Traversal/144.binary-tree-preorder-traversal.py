@@ -25,6 +25,13 @@ class Solution:
             else:
                 root = stack.pop()
         return ret
+'''
+# recursive
+    def preorderTraversal(self, root):
+        if not root:
+            return []
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right) 
+'''
         
 # @lc code=end
 

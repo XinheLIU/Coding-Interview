@@ -10,7 +10,6 @@ class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         if not grid or not grid[0]: return 0
         M, N = len(grid), len(grid[0])
-        q = deque()
         res = 0
         for i in range(M):
             for j in range(N):

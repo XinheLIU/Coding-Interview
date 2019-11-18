@@ -30,6 +30,23 @@ class Solution:
         dfs(root, 1, hashMap)
         return [hashMap[i] for i in hashMap]
 
-        
+'''
+from collections import deque
+class Solution:
+    def largestValues(self, root: TreeNode) -> List[int]:
+        ret = []
+        if not root:
+            return []
+        q = deque([root])
+        while q:
+            max_l = float('-inf')
+            for _ in range(len(q)):
+                node = q.popleft()
+                max_l = max(max_l, node.val)
+                if node.left: q.append(node.left)
+                if node.right: q.append(node.right)
+            ret.append(max_l)
+        return ret
+'''  
 # @lc code=end
 

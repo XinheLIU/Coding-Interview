@@ -1,18 +1,27 @@
+#
+# @lc app=leetcode id=145 lang=python3
+#
+# [145] Binary Tree Postorder Traversal
+#
+
+# @lc code=start
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
+from collections import deque
 class Solution:
     def postorderTraversal(self, root: TreeNode) -> List[int]:
+        ret = []
         if not root:
-            return []
-        pre, stack, ret = None, [root], []
+            return ret
+        stack = deque([root])
+        pre = None
         while len(stack):
             p = stack[-1]
-            if (not p.right and not p.left) or (pre and (pre == p.left or pre == p.right)):
+            if (p.left is None and p.right is None) or (pre and (pre == p.left or pre == p.right)):
                 ret.append(p.val)
                 stack.pop()
                 pre = p
@@ -26,3 +35,5 @@ class Solution:
             return []
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
 '''
+# @lc code=end
+

@@ -11,7 +11,6 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         n, start = len(nums), 0
-        n, start = len(nums), 0
         while n and k % n:
             k %= n
             for i in range(k):

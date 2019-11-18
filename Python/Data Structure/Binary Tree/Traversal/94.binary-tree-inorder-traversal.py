@@ -26,5 +26,12 @@ class Solution:
             root = root.right
         return ret
         
+'''
+recursive
+    def inorderTraversal(self, root):
+        if not root:
+            return []
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+'''
 # @lc code=end
 
