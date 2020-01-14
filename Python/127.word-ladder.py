@@ -5,6 +5,34 @@
 #
 
 # @lc code=start
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        wordList = set(wordList)
+        if endWord not in wordList: 
+            return 0
+        front, back = {beginWord}, {endWord}
+        ret = 1 # notice : 1 here
+        n = len(beginWord)
+        while front:
+            ret += 1
+            next_front = set()
+            for word in front:
+                for i in range(n):
+                    for c in 'abcdefghijklmnopqrstuvwxyz':
+                        if c != word[i]:
+                            nw = word[:i] + c + word[i+1:]
+                            if nw in back:
+                                return ret
+                            if nw in wordList:  
+                                next_front.add(nw)
+                                wordList.remove(nw) # could also use Visited
+            front = next_front
+            if len(front) > len(back):
+                front, back = back, front
+        return 0
+
+'''
 from collections import deque
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
@@ -32,5 +60,6 @@ class Solution:
                 if next_word != word and next_word in wordList:
                     ret.append(next_word)
         return ret
+'''
 # @lc code=end
 
