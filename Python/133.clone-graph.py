@@ -26,4 +26,22 @@ class Solution:
             return root
         return dfs(node, {})
 # @lc code=end
+'''
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        if not node:
+            return node
+        visited = {}
+        queue = collections.deque([node])
+        visited[node] = Node(node.val, [])
+
+        while queue:
+            n = queue.popleft()
+            for neighbor in n.neighbors:
+                if neighbor not in visited:
+                    visited[neighbor] = Node(neighbor.val, [])
+                    queue.append(neighbor)
+                visited[n].neighbors.append(visited[neighbor])
+        return visited[node]
+'''
 

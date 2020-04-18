@@ -17,6 +17,7 @@ class Solution:
                         visited.append(neighbor)
                         queue.append(neighbor)
             return visited
+            
         def find_root(visited):
             for i in range(n):
                 if i not in visited:
