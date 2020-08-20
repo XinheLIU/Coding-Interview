@@ -17,3 +17,16 @@ class Solution:
             return True
         s.add(node.val)
         return self.helper(node.left, k, s) or self.helper(node.right, k, s)
+
+'''
+class Solution:
+    def findTarget(self, root: TreeNode, k: int) -> bool:
+        def helper(root, k, s):
+            if not root:
+                return False
+            if k - root.val in s:   
+                return True
+            s.add(root.val)
+            return helper(root.left, k, s) or helper(root.right, k, s)
+        return helper(root, k, set())
+'''

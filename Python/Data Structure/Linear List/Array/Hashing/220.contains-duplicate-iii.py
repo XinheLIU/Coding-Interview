@@ -15,11 +15,16 @@ class Solution:
             for key in range(bucketKey - offset, bucketKey + offset + 1):
                 if key in buckets and abs(buckets[key] - v) <= t:
                     return True
-            # keep the recent most nums[i]
+            # keep the recent most nums[i] is ok
             buckets[bucketKey] = v
-            # get rid of to far away buckets
+            # get rid of too far away buckets
             if len(buckets) > k:
                 del buckets[nums[i-k] // t if t!= 0 else nums[i-k]]
         return False
 # @lc code=end
+'''
+Other solutions
+1. Directly Search
+2. Maintain a balanced tree window set
+'''
 

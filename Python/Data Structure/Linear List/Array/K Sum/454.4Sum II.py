@@ -1,7 +1,8 @@
 from collections import Counter
 class Solution:
     def fourSumCount(self, A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
-        cnt1, cnt2, n = Counter(), Counter(), len(A) # size is the same
+        cnt1, cnt2 = Counter(), Counter()
+        n = len(A) # size is the same
         for i in range(n):
             for j in range(n):
                 cnt1[A[i] + B[j]] += 1

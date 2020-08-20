@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=287 lang=python3
+#
+# [287] Find the Duplicate Number
+#
+
+# @lc code=start
 class Solution:
     def findDuplicate(self, nums):
         # Find the intersection point of the two runners.
@@ -17,7 +24,17 @@ class Solution:
             ptr2 = nums[ptr2]
         
         return ptr1
+        
+# @lc code=end
 
+'''
+def findDuplicate(self, nums):
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return num
+        seen.add(num)
+'''
 '''
 class Solution(object):
     def findDuplicate(self, nums):
@@ -40,3 +57,6 @@ class Solution(object):
                 r = mid
         return l
 '''
+
+
+

@@ -4,6 +4,8 @@ class LogSystem:
         self.__logs = []
         self.__gra = {'Year': 4, 'Month': 7, 'Day': 10, \
                               'Hour': 13, 'Minute': 16, 'Second': 19}
+        
+        
 
     def put(self, id: int, timestamp: str) -> None:
         self.__logs.append((id, timestamp))
