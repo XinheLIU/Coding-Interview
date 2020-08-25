@@ -11,6 +11,7 @@ class Solution:
         stack = collections.deque()
         ret = 0
         for i, h in enumerate(heights):
+            # decreasing stak
             while stack and h > heights[stack[-1]]:
                 t = stack.pop()
                 if not stack:
@@ -28,6 +29,7 @@ class Solution:
         ret = 0
         n = len(height)
         while i < n:
+            # decreasing stack
             if not stack or height[stack[-1]] >= height[i]:
                 stack.append(i)
                 i += 1
