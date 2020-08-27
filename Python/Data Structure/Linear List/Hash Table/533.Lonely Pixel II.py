@@ -6,24 +6,24 @@ class Solution(object):
         :type N: int
         :rtype: int
         """
-        w, h = len(picture), len(picture[0])
-        rows, cols = [0] * w, [0] * h
-        for x in range(w):
-            for y in range(h):
+        m, n = len(picture), len(picture[0])
+        rows, cols = [0] * m, [0] * n
+        for x in range(m):
+            for y in range(n):
                 if picture[x][y] == 'B':
                     rows[x] += 1
                     cols[y] += 1
 
         sdict = collections.defaultdict(int)
-        for idx, row in enumerate(picture):
-            sdict[''.join(row)] += 1
+        for x in picture:
+            sdict[''.join(x)] += 1
 
         ans = 0
-        for x in range(w):
+        for x in range(m):
             row = ''.join(picture[x])
             if sdict[row] != N:
                 continue
-            for y in range(h):
+            for y in range(n):
                 if picture[x][y] == 'B':
                     if rows[x] == N:
                         if cols[y] == N:
