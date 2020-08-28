@@ -5,9 +5,10 @@
 #
 
 # @lc code=start
+from collections import Counter
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        count = collections.Counter()
+        count = Counter()
         l, r = 0, 0
         max_count = 0
         ret = 0
@@ -15,7 +16,8 @@ class Solution:
             c1 = s[r]
             count[c1] += 1
             max_count = max(max_count, count[c1])
-            while r - l - max_count + 1 > k:
+            # flip char other than max_count
+            while r - l + 1 - max_count > k:
                 c2 = s[l]
                 count[c2] -= 1
                 max_count = max(max_count, count[c2])

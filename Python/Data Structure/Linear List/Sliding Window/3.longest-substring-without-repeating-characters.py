@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+import collections
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         ret = 0
