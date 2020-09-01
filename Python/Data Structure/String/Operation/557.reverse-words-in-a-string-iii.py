@@ -25,6 +25,5 @@ class Solution:
         while left < right:
             l[left], l[right] = l[right], l[left]
             left, right = left + 1, right - 1
-# return " ".join([word[::-1] for word in s.split(' ')])
 # @lc code=end
-
+# return " ".join([word[::-1] for word in s.split(' ')])

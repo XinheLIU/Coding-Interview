@@ -12,4 +12,3 @@ class Solution:
             ret += chr(ord(c) | 32)
         return ret
 # @lc code=end
-
