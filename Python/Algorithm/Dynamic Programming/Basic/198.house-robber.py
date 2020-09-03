@@ -8,8 +8,6 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
         if not nums: return 0
-        n = len(nums)
-        # dp1 not steal, dp2 steal
         prev_max = 0
         cur_max = 0
         for v in nums:
@@ -24,10 +22,10 @@ class Solution:
         dp1, dp2 = nums[:], nums[:]
         dp1[0] = 0
         # two state
+        # dp1 not steal, dp2 steal
         for i in range(1, len(nums)):
             dp1[i] = max(dp1[i-1], dp2[i-1])
             dp2[i] = dp1[i-1] + nums[i]
         return(max(dp1[-1], dp2[-1]))
     '''
 # @lc code=end
-

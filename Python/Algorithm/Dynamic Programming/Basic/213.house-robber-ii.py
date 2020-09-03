@@ -9,6 +9,7 @@ class Solution:
     def rob(self, nums: List[int]) -> int:
         if len(nums) == 1:
             return nums[0]
+
         def rob1(nums: List[int]) -> int:
             if not nums:
                 return 0
@@ -19,6 +20,7 @@ class Solution:
                 dp1[i] = max(dp1[i-1], dp2[i-1])
                 dp2[i] = dp1[i-1] + nums[i]
             return(max(dp1[-1], dp2[-1]))
+        
         return max(rob1(nums[:-1]), rob1(nums[1:]))
 # @lc code=end
 
