@@ -20,7 +20,7 @@ class Solution:
                 else:
                     l = mid
             else:
-                if nums[r] >= target > nums[mid]:
+                if nums[r] >= target > nums[mid]: # right is sorted
                     l = mid
                 else:
                     r = mid

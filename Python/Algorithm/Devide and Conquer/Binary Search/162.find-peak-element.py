@@ -10,7 +10,7 @@ class Solution:
         if not nums: return None
         l, r = 0, len(nums) - 1
         while l + 1 < r:
-            mid = (l + r) // 2
+            mid = l + ((r - l) >> 1)
             if nums[mid] < nums[mid-1]:
                 r = mid
             elif nums[mid] < nums[mid+1]:
@@ -21,6 +21,5 @@ class Solution:
             return r
         else:
             return l
-        
 # @lc code=end
 
