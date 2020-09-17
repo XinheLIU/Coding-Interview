@@ -11,7 +11,7 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         p0, i, p2 = 0, 0, len(nums) - 1
-        # nums[:p0] = 1, nums[p0:i] = 2, nums[i:p2] = 2
+        # nums[:p0] = 1, nums[p0:i] = 2, nums[p2] = 2
         while i <= p2:
             if nums[i] == 0 and p0 != i:
                 nums[i], nums[p0] = nums[p0], nums[i]
