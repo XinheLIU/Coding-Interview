@@ -8,10 +8,9 @@
 
 class Solution(object):
     def rotate(self, nums, k):
-        k = k % len(nums)
         n = len(nums)
-        i = 0
-        count = 0
+        k %= n 
+        i, count = 0, 0
         while count < n:
             pos = (i + k) % n
             curr = nums[pos]
@@ -24,6 +23,7 @@ class Solution(object):
                 j = pos
                 count += 1
             i += 1
+# @lc code=end           
 
 '''
 class Solution:
@@ -61,6 +61,3 @@ class Solution:
         for i in range(n):
             nums[i] = ret[i]
 '''
-        
-# @lc code=end
-

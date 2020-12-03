@@ -14,15 +14,12 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        # not find both, return None
-        if not root or root == p or root == q:
-            return root
-        l, r = self.lowestCommonAncestor(root.left, p, q), self.lowestCommonAncestor(root.right, p, q)
-        if l and r:
-            return root
-        elif not l:
-            return r
+        parent_val, p_val, q_val = root.val, p.val, q.val
+        if p_val > parent_val and q_val > parent_val:    
+            return self.lowestCommonAncestor(root.right, p, q)
+        elif p_val < parent_val and q_val < parent_val:    
+            return self.lowestCommonAncestor(root.left, p, q)
         else:
-            return l
+            return root
 # @lc code=end
 

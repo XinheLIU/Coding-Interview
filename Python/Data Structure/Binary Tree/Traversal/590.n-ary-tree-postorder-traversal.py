@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=590 lang=python3
+#
+# [590] N-ary Tree Postorder Traversal
+#
+
+# @lc code=start
 """
 # Definition for a Node.
 class Node:
@@ -7,16 +14,19 @@ class Node:
 """
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:
-        if not root:
+        if root is None:
             return []
-        ret, stack = [], [root]
+        
+        stack, output = [root, ], []
         while stack:
-            p = stack.pop()
-            ret.append(p.val)
-            for c in p.children:
+            root = stack.pop()
+            if root is not None:
+                output.append(root.val)
+            for c in root.children:
                 stack.append(c)
-        return ret[::-1]
-
+                
+        return output[::-1] 
+# @lc code=end
 """
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:

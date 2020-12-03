@@ -16,3 +16,13 @@ class Solution(object):
                 i += 1
                 j += 1  
         return i
+"""
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i = 0
+        for j, v in enumerate(nums):
+            if v != val:
+                nums[i] = nums[j]
+                i += 1
+        return i
+"""
