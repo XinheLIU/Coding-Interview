@@ -1,5 +1,18 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
+        def dfs(ret, out, start, n, k):
+            if len(out) == k: 
+                ret.append(out)
+                return
+            for i in range(start, n + 1):
+                dfs(ret, out + [i], i + 1, n, k)
+        ret = []
+        dfs(ret, [], 1, n, k)
+        return ret
+
+'''
+class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
         def dfs(n, k, start, out, res):
             if len(out) == k:
                 res.append(out[:])
@@ -11,6 +24,7 @@ class Solution:
         res = []
         dfs(n, k, 1, [], res)
         return res
+'''
 
 """
 class Solution:

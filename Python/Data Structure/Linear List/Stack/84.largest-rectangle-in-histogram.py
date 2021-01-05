@@ -20,4 +20,3 @@ class Solution:
             stack.append(i)
         return ret
 # @lc code=end
-

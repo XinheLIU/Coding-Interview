@@ -19,7 +19,7 @@ class Solution:
             return ret
         stack = deque([root])
         pre = None
-        while len(stack):
+        while stackr:
             p = stack[-1]
             if (p.left is None and p.right is None) or (pre and (pre == p.left or pre == p.right)):
                 ret.append(p.val)

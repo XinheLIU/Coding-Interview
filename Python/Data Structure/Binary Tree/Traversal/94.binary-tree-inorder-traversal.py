@@ -17,7 +17,7 @@ class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         ret = []
         stack = deque()
-        while root or len(stack):
+        while root or stack:
             while root:
                 stack.append(root)
                 root = root.left
