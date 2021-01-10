@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+import collections
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         edges = {i:[] for i in range(numCourses)}

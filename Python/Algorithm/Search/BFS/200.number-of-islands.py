@@ -100,7 +100,7 @@ def numIslands(self, grid: List[List[str]]) -> int:
                             nx, ny = x + d[0], y + d[1]
                             if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and grid[nx][ny] == '1':
                                 grid[nx][ny] = '0'
-                                q.append((nx, ny))
+                                q.append((nx, ny)) # for speed
         return ret
 '''
 

@@ -31,9 +31,8 @@ class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         if not node:
             return node
-        visited = {}
+        visited = {node: Node(node.val, [])}
         queue = collections.deque([node])
-        visited[node] = Node(node.val, [])
 
         while queue:
             n = queue.popleft()
