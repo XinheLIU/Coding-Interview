@@ -10,6 +10,7 @@ class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         edges = {i:[] for i in range(numCourses)}
         degrees = [0 for _ in range(numCourses)]
+        # indegree
         for i, j in prerequisites:
             edges[j].append(i)
             degrees[i] += 1

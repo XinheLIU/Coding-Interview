@@ -16,4 +16,3 @@ class Solution:
             if canReach >= n - 1:
                 return True
 # @lc code=end
-

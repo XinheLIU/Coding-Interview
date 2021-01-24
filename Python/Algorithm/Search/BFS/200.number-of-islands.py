@@ -93,6 +93,7 @@ def numIslands(self, grid: List[List[str]]) -> int:
             for j in range(len(grid[0])):
                 if grid[i][j] == '1':
                     ret += 1
+                    # sink
                     q = collections.deque([(i, j)])
                     while q:
                         x, y = q.popleft()

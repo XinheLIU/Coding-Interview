@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def findContentChildren(self, g: List[int], s: List[int]) -> int:
-        s.sort();g.sort()
+        s.sort(); g.sort()
         cnt = 0
         n = len(g)
         for cookie in s:
