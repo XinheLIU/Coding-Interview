@@ -44,3 +44,18 @@ class Solution:
         return visited[node]
 '''
 
+'''
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        def dfs(node, visited):
+            if not node:
+                return None
+            if node in visited:
+                return visited[node]
+            node_ = Node(node.val, [])
+            visited[node] = node_
+            for n in node.neighbors:
+                node_.neighbors.append(dfs(n, visited))
+            return node_
+        return dfs(node, {})
+'''

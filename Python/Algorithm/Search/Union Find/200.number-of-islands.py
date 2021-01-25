@@ -5,16 +5,16 @@
 #
 
 # @lc code=start
-from typing import List
 class Solution:
-    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
     def numIslands(self, grid: List[List[str]]) -> int:
         ret = 0
         if not grid:
-            return ret    
-        visited = [[False for _ in range(len(grid[0]))] for _ in grid]
-        for i in range(len(grid)):
-            for j in range(len(grid[i])):
+            return ret 
+        M, N = len(grid), len(grid[0])
+        visited = [[False for _ in range(N)] for _ in range(M)]
+        for i in range(M):
+            for j in range(N):
                 if grid[i][j] == "1" and not visited[i][j]:
                     ret += 1
                     self.dfs(grid, visited, i, j)
@@ -83,53 +83,26 @@ class Solution:
 '''        
 
 '''
-# bfs 1
-def numIslands(self, grid: List[List[str]]) -> int:
+# bfs 
+from collections import deque
+class Solution
+    def numIslands(self, grid: List[List[str]]) -> int:
         ret = 0
         if not grid:
-            return ret
-        directions = ((0,1), (0,-1), (1, 0), (-1, 0))
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == '1':
-                    ret += 1
-                    # sink
-                    q = collections.deque([(i, j)])
-                    while q:
-                        x, y = q.popleft()
-                        for d in directions:
-                            nx, ny = x + d[0], y + d[1]
-                            if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and grid[nx][ny] == '1':
-                                grid[nx][ny] = '0'
-                                q.append((nx, ny)) # for speed
-        return ret
-'''
-
-'''
-# bfs 2
-from collections import deque
-class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
-        if not grid or not grid[0]: return 0
+            return ret 
         M, N = len(grid), len(grid[0])
-        res = 0
+        directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
         for i in range(M):
             for j in range(N):
-                if grid[i][j] == '1':
-                    res += 1
-                    self.sink(grid, i, j, M, N)
-        return res
-
-    def sink(self, grid, i, j, M, N):
-        grid[i][j] = '0'
-        q = deque([(i, j)])
-        directions = ((0, 1), (0, -1), (1, 0), (-1, 0))
-        while q:
-            x, y = q.pop()
-            for d in directions:
-                nx, ny = x + d[0], y + d[1]
-                if 0 <= nx < M and 0 <= ny < N and grid[nx][ny] == '1':
-                    grid[nx][ny] = '0'
-                    q.append((nx, ny))
+                if grid[i][j] == "1":
+                    ret += 1
+                    q = deque([(i,j)])
+                    while q:
+                        x,y = q.popleft()
+                        for d in directions:
+                            nx, ny = x + d[0], y + d[1]
+                            if 0 <= nx < M and 0 <= ny < N and grid[nx][ny] == '1':
+                                grid[nx][ny] = '0'
+                                q.append((nx, ny))
+        return ret
 '''
-
