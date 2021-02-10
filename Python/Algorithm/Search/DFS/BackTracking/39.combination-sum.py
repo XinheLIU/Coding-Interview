@@ -18,6 +18,5 @@ class Solution:
         res = []
         dfs(res, 0, [])
         return res
-        
 # @lc code=end
 
