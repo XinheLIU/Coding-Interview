@@ -5,6 +5,8 @@
 #
 
 # @lc code=start
+import collections
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         edges = {i: [] for i in range(numCourses)}
@@ -15,9 +17,7 @@ class Solution:
         
         q, count = collections.deque(), 0
         
-        for i in range(numCourses):
-            if degrees[i] == 0:
-                q.append(i)
+        q = collections.deque([i for i in range(numCourses) if degrees[i] == 0])
         
         while q:
             node = q.popleft()

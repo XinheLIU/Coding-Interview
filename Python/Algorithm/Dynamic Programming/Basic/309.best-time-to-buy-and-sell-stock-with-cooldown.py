@@ -43,11 +43,15 @@ class Solution:
         if n <= 1:
             return 0 
         buy, sell = [0] * n, [0] * n
+        # max profit for one more buy than sell 
         buy[0] = -prices[0]
         buy[1] = max(-prices[0], -prices[1])
+        # max profit for equal buy and sell
         sell[1] = max(0, prices[1] - prices[0])
         for i in range(2,n):
+            # do nothing or buy a new stock
             buy[i] = max(buy[i-1], sell[i-2] - prices[i])
+            # do nothing or sell
             sell[i] = max(sell[i-1], buy[i-1] + prices[i])
         return sell[n-1]
 # @lc code=end

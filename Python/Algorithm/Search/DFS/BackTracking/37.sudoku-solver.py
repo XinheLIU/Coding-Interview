@@ -10,6 +10,7 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+        # usable digits (or visited)
         row = [set(range(1, 10)) for _ in range(9)]
         col = [set(range(1, 10)) for _ in range(9)]
         grid = [set(range(1, 10)) for _ in range(9)]

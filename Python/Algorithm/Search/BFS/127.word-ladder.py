@@ -15,6 +15,7 @@ class Solution:
         ret = 1 # notice : 1 here
         n = len(beginWord)
         while front:
+            # one step
             ret += 1
             next_front = set()
             for word in front:

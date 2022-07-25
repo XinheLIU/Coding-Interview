@@ -67,7 +67,7 @@ class Solution:
                 ret.append(out)
                 return
             for i in range(start, len(candidates)):
-                if i >start and candidates[i] == candidates[i-1]: continue
+                if i > start and candidates[i] == candidates[i-1]: continue
                 dfs(ret, out + [candidates[i]], candidates, target - candidates[i], i + 1)
         ret = []
         dfs(ret, [], sorted(candidates), target, 0)

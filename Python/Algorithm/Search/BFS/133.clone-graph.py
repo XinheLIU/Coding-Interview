@@ -14,39 +14,6 @@ class Node:
 """
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        def dfs(node, m):
-            if not node:
-                return None
-            if node.val in m:
-                return m[node.val]
-            root = Node(node.val, [])
-            m[node.val] = root
-            for n in node.neighbors:
-                root.neighbors.append(dfs(n, m))
-            return root
-        return dfs(node, {})
-# @lc code=end
-'''
-class Solution:
-    def cloneGraph(self, node: 'Node') -> 'Node':
-        if not node:
-            return node
-        visited = {node: Node(node.val, [])}
-        queue = collections.deque([node])
-
-        while queue:
-            n = queue.popleft()
-            for neighbor in n.neighbors:
-                if neighbor not in visited:
-                    visited[neighbor] = Node(neighbor.val, [])
-                    queue.append(neighbor)
-                visited[n].neighbors.append(visited[neighbor])
-        return visited[node]
-'''
-
-'''
-class Solution:
-    def cloneGraph(self, node: 'Node') -> 'Node':
         def dfs(node, visited):
             if not node:
                 return None
@@ -58,4 +25,26 @@ class Solution:
                 node_.neighbors.append(dfs(n, visited))
             return node_
         return dfs(node, {})
+# @lc code=end
+'''
+from collections import deque
+
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        if not node:
+            return node
+        
+        visited = {node: Node(node.val, [])}
+        q = deque([node])
+        
+        while q:
+            n = q.popleft()
+            for neighbor in n.neighbors:
+                if neighbor not in visited:
+                    # make a copy
+                    visited[neighbor]  = Node(neighbor.val, [])
+                    q.append(neighbor)
+                # copy edge
+                visited[n].neighbors.append(visited[neighbor])
+        return visited[node]
 '''

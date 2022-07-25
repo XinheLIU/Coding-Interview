@@ -17,9 +17,7 @@ class Solution:
         
         q, count, ret = collections.deque(), 0, []
 
-        for i in range(numCourses):
-            if degrees[i] == 0:
-                q.append(i)
+        q = collections.deque([i for i in range(numCourses) if degrees[i] == 0])
 
         while q:
             node = q.popleft()
