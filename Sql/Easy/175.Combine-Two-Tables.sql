@@ -1,9 +1,3 @@
---- Write your MySQL query statement below
-SELECT P.FirstName, P.LastName, A.City, A.State 
-FROM Person AS P 
-LEFT JOIN Address AS A 
-on P.PersonID = A.PersonID
-
 /*
 Table: Person
 
@@ -70,3 +64,9 @@ There is no address in the address table for the personId = 1 so we return null 
 addressId = 1 contains information about the address of personId = 2.
 
 */
+
+--- Write your MySQL query statement below
+SELECT P.FirstName, P.LastName, A.City, A.State 
+FROM Person AS P 
+LEFT JOIN Address AS A 
+on P.PersonID = A.PersonID

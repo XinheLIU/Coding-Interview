@@ -1,3 +1,14 @@
+--- Write your MySQL query statement below
+SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1
+/*
+
+SELECT Email from 
+(
+    SELECT Email, Count(Email) as cnt from Person group by Email
+) as t
+where cnt > 1
+*/
+
 /*
 Table: Person
 
@@ -38,20 +49,3 @@ Output:
 +---------+
 Explanation: a@b.com is repeated two times.
 */
-
-SELECT Email FROM Person GROUP BY Email HAVING COUNT(Email) > 1
-
-/*
-select 
-distinct t1.email from person t1 join person t2
-on t1.email = t2.email and t1.id > t2.id
-*/
-/*
-
-SELECT Email from 
-(
-    SELECT Email, Count(Email) as cnt from Person group by Email
-) as t
-where cnt > 1
-*/
-
